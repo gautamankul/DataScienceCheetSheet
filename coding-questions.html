@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Coding Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header-underline {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .question-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .question-header {
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .question-number {
+            background: white;
+            color: #2563eb;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .question-text {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .question-text h3 {
+            color: #1f2937;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .question-text p {
+            color: #374151;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .code-block .keyword {
+            color: #c678dd;
+        }
+
+        .code-block .function {
+            color: #61afef;
+        }
+
+        .code-block .string {
+            color: #98c379;
+        }
+
+        .code-block .number {
+            color: #d19a66;
+        }
+
+        .code-block .comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+
+        .section-title {
+            background: #f3f4f6;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: #1f2937;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+        }
+
+        .solution-section {
+            margin-top: 30px;
+        }
+
+        .output-section {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .output-section h4 {
+            color: #065f46;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .output-section pre {
+            background: #064e3b;
+            color: #d1fae5;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .explanation {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .explanation h4 {
+            color: #92400e;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .explanation ul {
+            margin-left: 25px;
+            color: #78350f;
+        }
+
+        .explanation li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .question-container {
+                padding: 25px;
+            }
+
+            .question-header {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+
+            .code-block {
+                font-size: 0.85rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-section">
+            <h1>Python Coding Questions</h1>
+            <div class="header-underline"></div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="question-container">
+            <div class="question-header">
+                <span class="question-number">Question 1</span>
+                Vector Operations with Vectorization
+            </div>
+
+            <div class="question-text">
+                <h3>Problem Statement:</h3>
+                <p>Write a class with methods to perform vector operations including:</p>
+                <ul style="margin-left: 25px; margin-top: 10px; color: #374151;">
+                    <li>Addition of two vectors</li>
+                    <li>Dot product of two vectors</li>
+                    <li>Normalization of a vector</li>
+                </ul>
+                <p style="margin-top: 15px;">Print their results for the following vectors:</p>
+            </div>
+
+            <div class="code-block">
+                <span class="keyword">v1</span> = <span class="function">Vector</span>([<span class="number">1</span>,
+                <span class="number">2</span>, <span class="number">3</span>])
+                <span class="keyword">v2</span> = <span class="function">Vector</span>([<span class="number">4</span>,
+                <span class="number">5</span>, <span class="number">6</span>])
+            </div>
+
+            <div class="solution-section">
+                <div class="section-title">💡 Solution:</div>
+
+                <div class="code-block">
+                <pre><code>
+                import numpy as np
+
+                class Vector:
+                    def __init__(self, elements):
+                        # Initialize vector using numpy array for vectorization
+                        self.elements = np.array(elements)
+
+                    def addition(self, other):
+                        # Vector addition using numpy vectorization
+                        result = self.elements + other.elements
+                        return Vector(result)
+
+                    def dot_product(self, other):
+                        # Dot product using numpy's dot function
+                        return np.dot(self.elements, other.elements)
+
+                    def normalize(self):
+                        # Normalize vector (divide by magnitude)
+                        magnitude = np.linalg.norm(self.elements)
+                        if magnitude == 0:
+                            return Vector(self.elements)
+                        normalized = self.elements / magnitude
+                        return Vector(normalized)
+
+                    def __str__(self):
+                        # String representation for printing
+                        return f"Vector({self.elements})"
+
+
+                # Create vectors
+                v1 = Vector([1, 2, 3])
+                v2 = Vector([4, 5, 6])
+
+                # Perform operations and print results
+                print("Vector 1:", v1)
+                print("Vector 2:", v2)
+                print("\n--- Operations ---")
+
+                # Addition
+                result_add = v1.addition(v2)
+                print(f"Addition: {result_add}")
+
+                # Dot Product
+                result_dot = v1.dot_product(v2)
+                print(f"Dot Product: {result_dot}")
+
+                # Normalization
+                result_norm_v1 = v1.normalize()
+                result_norm_v2 = v2.normalize()
+                print(f"Normalized v1: {result_norm_v1}")
+                print(f"Normalized v2: {result_norm_v2}")
+                </code></pre>
+                </div>
+
+                <div class="explanation">
+                    <h4>🔍 Explanation:</h4>
+                    <ul>
+                        <li><strong>Vectorization:</strong> Uses NumPy arrays for efficient element-wise operations</li>
+                        <li><strong>Addition:</strong> Element-wise addition: [1+4, 2+5, 3+6] = [5, 7, 9]</li>
+                        <li><strong>Dot Product:</strong> Sum of element-wise multiplication: (1×4) + (2×5) + (3×6) = 32
+                        </li>
+                        <li><strong>Normalization:</strong> Divides each element by the vector's magnitude (√(1²+2²+3²)
+                            = √14 ≈ 3.742)</li>
+                        <li><strong>Benefits:</strong> NumPy vectorization is 10-100x faster than loops for large arrays
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Algorithms Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 100%);
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f2937;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .table-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+        }
+
+        thead th {
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        thead th:first-child {
+            width: 20%;
+        }
+
+        thead th:nth-child(2) {
+            width: 40%;
+        }
+
+        thead th:nth-child(3) {
+            width: 40%;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        tbody tr:hover {
+            background-color: #dbeafe;
+        }
+
+        tbody td {
+            padding: 20px;
+            color: #374151;
+        }
+
+        tbody td:first-child {
+            font-weight: 600;
+            color: #2563eb;
+            font-size: 1rem;
+        }
+
+        tbody td:nth-child(2) {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        tbody td:nth-child(3) {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            background-color: #f3f4f6;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            thead th,
+            tbody td {
+                padding: 12px;
+                font-size: 0.85rem;
+            }
+
+            tbody td:nth-child(3) {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Machine Learning Algorithms Reference</h1>
+        <p class="subtitle">Comprehensive guide to ML models with definitions and formulas</p>
+        
+        <div class="table-wrapper">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Algorithm Name</th>
+                            <th>Definition</th>
+                            <th>Key Formula / Logic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Linear Regression</td>
+                            <td>A supervised learning algorithm that models the relationship between a dependent variable and one or more independent variables using a linear equation. Used for predicting continuous numerical values.</td>
+                            <td>Y = β₀ + β₁X₁ + β₂X₂ + ... + βₙXₙ</td>
+                        </tr>
+                        <tr>
+                            <td>Logistic Regression</td>
+                            <td>A supervised classification algorithm that predicts the probability of a binary outcome using the logistic (sigmoid) function. Despite its name, it's used for classification, not regression.</td>
+                            <td>P = 1 / (1 + e^-(β₀ + β₁X₁ + ... + βₙXₙ))</td>
+                        </tr>
+                        <tr>
+                            <td>Decision Tree</td>
+                            <td>A supervised learning algorithm that creates a tree-like model of decisions based on feature values. It recursively splits data into subsets based on the most significant attributes.</td>
+                            <td>Recursive binary split based on feature thresholds</td>
+                        </tr>
+                        <tr>
+                            <td>Random Forest</td>
+                            <td>An ensemble supervised learning method that constructs multiple decision trees during training and outputs the mode (classification) or mean (regression) of individual trees. Reduces overfitting through bagging.</td>
+                            <td>Ŷ = (1/T) Σ tree_predictions (bagging + averaging)</td>
+                        </tr>
+                        <tr>
+                            <td>Gradient Boosting</td>
+                            <td>An ensemble technique that builds models sequentially, with each new model correcting errors made by previous ones. It minimizes a loss function using gradient descent in function space.</td>
+                            <td>F(x) = Σ αₘ hₘ(x) where hₘ are weak learners</td>
+                        </tr>
+                        <tr>
+                            <td>Support Vector Machine (SVM)</td>
+                            <td>A supervised learning algorithm that finds the optimal hyperplane that maximizes the margin between different classes. Uses kernel functions to handle non-linear separations.</td>
+                            <td>Maximize margin: 2/||w|| subject to yᵢ(w·xᵢ + b) ≥ 1</td>
+                        </tr>
+                        <tr>
+                            <td>K-Nearest Neighbors (KNN)</td>
+                            <td>A simple supervised learning algorithm that classifies data points based on the majority vote of their K nearest neighbors in the feature space. Distance-based, non-parametric method.</td>
+                            <td>Distance: d = √(Σ(xᵢ - yᵢ)²) for Euclidean distance</td>
+                        </tr>
+                        <tr>
+                            <td>Naive Bayes</td>
+                            <td>A probabilistic supervised classifier based on Bayes' theorem with the assumption of feature independence. Particularly effective for text classification and when features are conditionally independent.</td>
+                            <td>P(A|B) = P(B|A) × P(A) / P(B)</td>
+                        </tr>
+                        <tr>
+                            <td>K-Means Clustering</td>
+                            <td>An unsupervised learning algorithm that partitions data into K clusters by minimizing within-cluster variance. Each data point belongs to the cluster with the nearest centroid.</td>
+                            <td>Minimize: Σ Σ ||xᵢ - μₖ||² (intra-cluster distance)</td>
+                        </tr>
+                        <tr>
+                            <td>Hierarchical Clustering</td>
+                            <td>An unsupervised method that builds a hierarchy of clusters either through agglomerative (bottom-up) or divisive (top-down) approaches. Creates a dendrogram showing nested groupings.</td>
+                            <td>Distance metric: d(A,B) using linkage criteria (single, complete, average)</td>
+                        </tr>
+                        <tr>
+                            <td>Principal Component Analysis (PCA)</td>
+                            <td>A dimensionality reduction technique that transforms data into a new coordinate system where the greatest variance lies on the first coordinates (principal components). Extracts eigenvectors from the covariance matrix.</td>
+                            <td>Cov(X) = (1/n)X^T X, find eigenvectors of covariance matrix</td>
+                        </tr>
+                        <tr>
+                            <td>Neural Networks (MLP)</td>
+                            <td>A supervised learning model inspired by biological neural networks, consisting of interconnected layers of nodes (neurons). Each connection has a weight adjusted during training through backpropagation.</td>
+                            <td>Output = activation(Σ(wᵢxᵢ + b)) per neuron</td>
+                        </tr>
+                        <tr>
+                            <td>Convolutional Neural Networks (CNN)</td>
+                            <td>A deep learning architecture specialized for processing grid-like data (images, videos). Uses convolutional layers with learnable filters to automatically extract hierarchical spatial features.</td>
+                            <td>Convolution: (f * g)(x) = Σ f(a)g(x-a) + pooling layers</td>
+                        </tr>
+                        <tr>
+                            <td>Recurrent Neural Networks (RNN)</td>
+                            <td>A neural network architecture designed for sequential data where connections form directed cycles. Maintains hidden states that capture information about previous inputs in the sequence.</td>
+                            <td>hₜ = tanh(Wₓₕxₜ + Wₕₕhₜ₋₁ + bₕ)</td>
+                        </tr>
+                        <tr>
+                            <td>Transformer (BERT, GPT)</td>
+                            <td>A deep learning architecture using self-attention mechanisms to process sequential data in parallel. Eliminates recurrence, using positional encoding to capture sequence order. Foundation for modern NLP models.</td>
+                            <td>Attention(Q,K,V) = softmax(QK^T/√dₖ)V + positional encoding</td>
+                        </tr>
+                        <tr>
+                            <td>Autoencoders</td>
+                            <td>An unsupervised neural network that learns efficient data encodings by training to reconstruct input data. Consists of an encoder that compresses data and a decoder that reconstructs it.</td>
+                            <td>Minimize: ||X - decoder(encoder(X))||²</td>
+                        </tr>
+                        <tr>
+                            <td>DBSCAN</td>
+                            <td>A density-based unsupervised clustering algorithm that groups together points that are closely packed, marking outliers as noise. Does not require specifying the number of clusters beforehand.</td>
+                            <td>Density-based: core points with ε-neighborhood ≥ minPts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Total Algorithms: 17</strong></p>
+            <p>Includes Supervised, Unsupervised, and Deep Learning methods</p>
+        </div>
+    </div>
+</body>
+</html>

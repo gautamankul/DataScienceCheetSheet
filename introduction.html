@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Me About Yourself</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header-underline {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .content-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .intro-line {
+            font-size: 1.2rem;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            border-left: 4px solid #4f46e5;
+            padding-left: 20px;
+        }
+
+        .content-paragraph {
+            font-size: 1.05rem;
+            color: #374151;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .content-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #2563eb;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .stats-section p {
+            font-size: 1.05rem;
+            color: #1e40af;
+            line-height: 1.8;
+            margin: 8px 0;
+        }
+
+        .skills-highlight {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .skills-highlight strong {
+            color: #1f2937;
+            font-size: 1.1rem;
+        }
+
+        .skills-highlight p {
+            color: #4b5563;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+
+        .closing-statement {
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                padding: 25px;
+            }
+
+            .intro-line,
+            .content-paragraph,
+            .skills-highlight p,
+            .closing-statement {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <h1>Tell Me About Yourself</h1>
+            <div class="header-underline"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="profile-badge">Data Scientist | 5+ Years Experience</div>
+
+            <p class="intro-line">
+                Sure. I'm Ankul Gautam, a Data Scientist with around 5 years of experience building end-to-end machine learning solutions, data pipelines, dashboards, and LLM-based automation.
+            </p>
+
+            <p class="content-paragraph">
+                I started my career as a <span class="highlight">Python Developer</span>, where I built APIs, automated data pipelines, and worked extensively with SQL, which improved data processing efficiency by over <span class="highlight">30%</span>.
+            </p>
+
+            <p class="content-paragraph">
+                Later, at <span class="highlight">Web Synergies</span>, I transitioned more into Data Science—focusing heavily on EDA, forecasting, ML modeling, and data visualization.
+            </p>
+
+            <div class="stats-section">
+                <p>📈 <strong>Time-Series Forecasting:</strong> Developed and optimized models that improved forecast accuracy by up to 75%</p>
+                <p>⚡ <strong>Automation:</strong> Automated EDA workflows and ML pipelines, reducing analysis and deployment time by 40%</p>
+            </div>
+
+            <div class="skills-highlight">
+                <strong>Technical Skills & Tools:</strong>
+                <p>Python • Pandas • NumPy • Scikit-learn • PySpark • SQL • Matplotlib • Seaborn • PowerBI</p>
+            </div>
+
+            <p class="content-paragraph">
+                Additionally, I have hands-on experience with <span class="highlight">Generative AI</span>. I built a domain-specific LLM with a RAG pipeline over 10,000+ engineering documents, which reduced search and troubleshooting time by around <span class="highlight">40%</span>. I also work with prompt engineering and applying GPT models for internal automation.
+            </p>
+
+            <p class="content-paragraph">
+                I'm currently pursuing my <span class="highlight">Executive PG in Data Science and AI from IIITB</span>, and I enjoy translating business problems into analytical solutions that create measurable impact.
+            </p>
+
+            <div class="closing-statement">
+                I'm looking forward to bringing my ML, Python, SQL, and GenAI background to Mindtree and contributing to data-driven decision-making and scalable AI solutions.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
