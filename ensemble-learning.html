@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cheat Sheet — Ensemble Learning (HTML/CSS)</title>
+  <style>
+    :root{--muted:#6b7280;--accent:#0f172a;--card:#ffffff;--bg:#f3f4f6}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;font-size:14px;background:var(--bg);color:var(--accent)}
+    .container{max-width:1100px;margin:28px auto;padding:18px}
+    .sheet{background:linear-gradient(180deg,#fff, #fbfdff);border:1px solid #e6e9ef;border-radius:8px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    header.h{display:flex;align-items:flex-start;gap:16px}
+    h1{font-size:20px;margin:0 0 6px;font-weight:700}
+    .subtitle{color:var(--muted);font-size:13px}
+    .two-col{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px}
+    .main{background:transparent}
+    .section{margin-bottom:14px}
+    .card{background:var(--card);border:1px solid #eef2f7;padding:12px;border-radius:6px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .box{padding:12px;border-radius:6px;border:1px dashed #e6eef8;background:#fff}
+    .diagram{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .param-table{width:100%;border-collapse:collapse;margin-top:10px}
+    .param-table th,.param-table td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    .param-table th{background:#f8fafc}
+    .small{font-size:12px;color:var(--muted)}
+    footer{margin-top:12px;color:var(--muted);font-size:12px}
+    @media (max-width:900px){.two-col{grid-template-columns:1fr;}.grid-3{grid-template-columns:1fr}.diagram{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sheet">
+      <header class="h">
+        <div>
+          <h1>Cheat Sheet — Ensemble Learning in ML</h1>
+          <div class="subtitle">Combine multiple weak learners into one predictive model to reduce bias/variance and improve accuracy.</div>
+        </div>
+      </header>
+
+      <div class="two-col">
+        <main class="main">
+          <section class="section card">
+            <h3 style="margin:0 0 8px">What is Ensemble Learning? (Interview-ready answer)</h3>
+            <p class="small">Ensemble learning combines multiple weak models (learners) to produce a stronger single model. Typical goals are to reduce variance (bagging), reduce bias (boosting), or improve predictive performance (stacking). Ensembles work because independent errors from weak learners can cancel out when combined.</p>
+          </section>
+
+          <section class="section">
+            <div class="grid-3">
+              <div class="card">
+                <h4 style="margin:0 0 6px">1. Bagging</h4>
+                <div class="small">Train N models on different bootstrap samples in parallel. Voting/averaging reduces variance.</div>
+              </div>
+              <div class="card">
+                <h4 style="margin:0 0 6px">2. Boosting</h4>
+                <div class="small">Train models sequentially; later learners focus on examples earlier learners misclassified. Weighted voting reduces bias.</div>
+              </div>
+              <div class="card">
+                <h4 style="margin:0 0 6px">3. Stacking</h4>
+                <div class="small">Train heterogeneous base learners and a meta-learner that takes their predictions as input to produce the final prediction.</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section card">
+            <h3 style="margin:0 0 8px">Block diagrams (simplified)</h3>
+            <div class="diagram">
+              <div class="box">
+                <strong>Bagging</strong>
+                <div class="small">Create N subsets → train N weak models → vote → final prediction.</div>
+              </div>
+              <div class="box">
+                <strong>Boosting</strong>
+                <div class="small">Train sequentially with adjusted weights on examples → weighted vote → final prediction.</div>
+              </div>
+              <div class="box">
+                <strong>Stacking</strong>
+                <div class="small">Train weak learners on subset → predictions fed to meta-learner → final prediction.</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section card">
+            <h3 style="margin:0 0 8px">Parameter comparison (quick)</h3>
+            <table class="param-table">
+              <thead><tr><th>Parameter</th><th>Bagging</th><th>Boosting</th><th>Stacking</th></tr></thead>
+              <tbody>
+                <tr><td>Focus</td><td>Reducing variance</td><td>Reducing bias</td><td>Improving accuracy</td></tr>
+                <tr><td>Weak learners</td><td>Homogenous</td><td>Homogenous</td><td>Heterogenous</td></tr>
+                <tr><td>Aggregation</td><td>Simple voting/avg</td><td>Weighted voting</td><td>Learned voting (meta)</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+        </main>
+
+        <aside>
+          <div class="card">
+            <h4 style="margin:0 0 8px">Quick Tips for Interviews</h4>
+            <ul class="small">
+              <li>Describe the intuition first (variance vs bias).</li>
+              <li>Mention popular algorithms: Random Forest (bagging), AdaBoost/GradientBoosting/XGBoost/LightGBM/CatBoost (boosting), and stacking for heterogeneous ensembles.</li>
+              <li>Talk about tradeoffs: compute cost, interpretability, overfitting risk.</li>
+            </ul>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="card">
+            <h4 style="margin:0 0 8px">Source / Notes</h4>
+            <div class="small">This HTML replicates the structure of a popular cheatsheet for ensemble methods — use it as a starting point and expand diagrams as needed for presentation or print.</div>
+          </div>
+        </aside>
+      </div>
+
+      <footer>Generated: Ensemble cheat sheet — simplified HTML/CSS version.</footer>
+    </div>
+  </div>
+</body>
+</html>

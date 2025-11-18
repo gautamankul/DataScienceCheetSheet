@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,20 +115,9 @@
             margin: 20px 0;
         }
 
-        .problem-box h3 {
-            color: #991b1b;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
         .problem-box ul {
             margin-left: 25px;
             color: #7f1d1d;
-        }
-
-        .problem-box li {
-            margin-bottom: 8px;
-            line-height: 1.6;
         }
 
         .detection-box {
@@ -138,74 +128,12 @@
             margin: 20px 0;
         }
 
-        .detection-box h3 {
-            color: #065f46;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .detection-box p {
-            color: #064e3b;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
         .methods-box {
             background: #fef3c7;
             border-left: 4px solid #f59e0b;
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
-        }
-
-        .methods-box h3 {
-            color: #92400e;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .methods-box ol {
-            margin-left: 25px;
-            color: #78350f;
-        }
-
-        .methods-box li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-
-        .code-block {
-            background: #1f2937;
-            color: #e5e7eb;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-
-        .code-block .keyword {
-            color: #c678dd;
-        }
-
-        .code-block .function {
-            color: #61afef;
-        }
-
-        .code-block .string {
-            color: #98c379;
-        }
-
-        .code-block .number {
-            color: #d19a66;
-        }
-
-        .code-block .comment {
-            color: #5c6370;
-            font-style: italic;
         }
 
         .step-header {
@@ -226,12 +154,6 @@
             margin: 15px 0;
         }
 
-        .output-box h4 {
-            color: #065f46;
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
         .output-box pre {
             background: #064e3b;
             color: #d1fae5;
@@ -250,34 +172,9 @@
             border-radius: 8px;
             margin: 15px 0;
         }
-
-        .note-box p {
-            color: #5b21b6;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .content-wrapper {
-                padding: 25px;
-            }
-
-            .section-header {
-                font-size: 1.2rem;
-                padding: 12px 20px;
-            }
-
-            .code-block {
-                font-size: 0.85rem;
-                padding: 15px;
-            }
-        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header-section">
@@ -285,19 +182,15 @@
             <div class="header-underline"></div>
         </div>
 
-        <!-- Main Content -->
         <div class="content-wrapper">
+
             <div class="section-header">
                 <span class="emoji">📊</span> What Is Multiple Linear Regression?
             </div>
 
             <div class="definition-box">
-                <p>
-                    <strong>Multiple Linear Regression (MLR)</strong> is a statistical method used to model the relationship between a dependent variable (Y) and two or more independent variables (X₁, X₂, X₃...).
-                </p>
-                <p>
-                    It estimates how changes in each independent variable affect the dependent variable.
-                </p>
+                <p><strong>Multiple Linear Regression (MLR)</strong> is a statistical method...</p>
+                <p>It estimates how changes in each independent variable affect the dependent variable.</p>
             </div>
 
             <div class="subsection-title">📐 Equation</div>
@@ -305,132 +198,111 @@
                 Y = β₀ + β₁X₁ + β₂X₂ + ⋯ + βₙXₙ + ε
             </div>
 
-            <!-- Multicollinearity Section -->
-            <div class="section-header" style="margin-top: 50px;">
+            <div class="section-header">
                 <span class="emoji">❗</span> What Is Multicollinearity?
             </div>
 
             <div class="definition-box">
-                <p>
-                    <strong>Multicollinearity</strong> occurs when two or more independent variables are highly correlated with each other.
-                </p>
+                <p><strong>Multicollinearity</strong> occurs when two or more independent variables are highly
+                    correlated.</p>
             </div>
 
             <div class="subsection-title">⚠️ Why is it a problem?</div>
             <div class="problem-box">
                 <ul>
-                    <li><strong>Coefficients become unreliable</strong></li>
-                    <li><strong>Model becomes unstable</strong></li>
-                    <li><strong>p-values become misleading</strong></li>
-                    <li><strong>Hard to interpret individual variable effects</strong></li>
+                    <li>Coefficients become unreliable</li>
+                    <li>Model becomes unstable</li>
+                    <li>p-values become misleading</li>
+                    <li>Hard to interpret variable effects</li>
                 </ul>
             </div>
 
-            <!-- Detection Section -->
-            <div class="section-header" style="margin-top: 50px;">
+            <div class="section-header">
                 <span class="emoji">🧪</span> How to Detect Multicollinearity
             </div>
 
             <div class="detection-box">
                 <h3>✔️ Variance Inflation Factor (VIF)</h3>
-                <p><strong>VIF > 5 or 10</strong> → high multicollinearity.</p>
+                <p>VIF > 5 or 10 → high multicollinearity.</p>
             </div>
 
-            <!-- Handling Section -->
-            <div class="section-header" style="margin-top: 50px;">
+            <div class="section-header">
                 <span class="emoji">🛠️</span> How to Handle Multicollinearity
             </div>
 
             <div class="methods-box">
-                <h3>Methods include:</h3>
                 <ol>
-                    <li>Remove highly correlated features</li>
-                    <li>Use dimensionality reduction (PCA)</li>
-                    <li>Use regularization (Ridge/Lasso) → <strong>recommended</strong></li>
+                    <li>Remove correlated features</li>
+                    <li>PCA</li>
+                    <li>Ridge/Lasso</li>
                     <li>Combine correlated features</li>
                 </ol>
             </div>
 
-            <!-- Coding Example -->
-            <div class="section-header" style="margin-top: 50px;">
+            <div class="section-header">
                 <span class="emoji">🧑‍💻</span> Python Coding Example (Detect & Fix Multicollinearity)
             </div>
 
             <div class="step-header">Step 1: Import Libraries</div>
-            <div class="code-block">
-<span class="keyword">import</span> pandas <span class="keyword">as</span> pd
-<span class="keyword">import</span> numpy <span class="keyword">as</span> np
-<span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression
-<span class="keyword">from</span> statsmodels.stats.outliers_influence <span class="keyword">import</span> variance_inflation_factor
-<span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler
-            </div>
+            <pre><code>import pandas as pd
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from sklearn.preprocessing import StandardScaler</code></pre>
 
             <div class="step-header">📌 Example Dataset</div>
-            <div class="code-block">
-data = {
-    <span class="string">'X1'</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>],
-    <span class="string">'X2'</span>: [<span class="number">11</span>, <span class="number">21</span>, <span class="number">31</span>, <span class="number">41</span>, <span class="number">51</span>],  <span class="comment"># X2 highly correlated with X1</span>
-    <span class="string">'X3'</span>: [<span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">1</span>],
-    <span class="string">'Y'</span>:  [<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">400</span>, <span class="number">500</span>]
+            <pre><code>data = {
+    'X1': [10, 20, 30, 40, 50],
+    'X2': [11, 21, 31, 41, 51],   # X2 highly correlated with X1
+    'X3': [5, 3, 6, 2, 1],
+    'Y' : [100, 200, 300, 400, 500]
 }
 
-df = pd.DataFrame(data)
-            </div>
+df = pd.DataFrame(data)</code></pre>
 
             <div class="step-header">✅ Step 2: Calculate VIF</div>
-            <div class="code-block">
-X = df[[<span class="string">'X1'</span>, <span class="string">'X2'</span>, <span class="string">'X3'</span>]]
+            <pre><code>X = df[['X1', 'X2', 'X3']]
 vif_data = pd.DataFrame()
-vif_data[<span class="string">"Feature"</span>] = X.columns
-vif_data[<span class="string">"VIF"</span>] = [variance_inflation_factor(X.values, i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(X.shape[<span class="number">1</span>])]
-<span class="keyword">print</span>(vif_data)
-            </div>
+vif_data["Feature"] = X.columns
+vif_data["VIF"] = [variance_inflation_factor(X.values, i)
+                   for i in range(X.shape[1])]
+print(vif_data)</code></pre>
 
             <div class="output-box">
-                <h4>Output (example):</h4>
-                <pre>  Feature   VIF
-0     X1  251.2
-1     X2  259.4
-2     X3    1.8</pre>
+                <pre>Feature   VIF
+X1       251.2
+X2       259.4
+X3         1.8</pre>
             </div>
 
             <div class="note-box">
-                <p><strong>👉 X1 and X2 have very high VIF</strong>, meaning they are strongly collinear.</p>
+                <p>👉 X1 and X2 have very high VIF.</p>
             </div>
 
-            <div class="step-header">✔️ Step 3A: Fix by Removing One Feature</div>
-            <div class="code-block">
-X_new = df[[<span class="string">'X1'</span>, <span class="string">'X3'</span>]]
+            <div class="step-header">✔️ Step 3A: Remove One Feature</div>
+            <pre><code>X_new = df[['X1', 'X3']]
 model = LinearRegression()
-model.fit(X_new, df[<span class="string">'Y'</span>])
-<span class="keyword">print</span>(<span class="string">"Coefficients:"</span>, model.coef_)
-            </div>
+model.fit(X_new, df['Y'])
+print("Coefficients:", model.coef_)</code></pre>
 
-            <div class="step-header">✔️ Step 3B: Fix by Using Ridge Regression (recommended)</div>
-            <div class="code-block">
-<span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge
+            <div class="step-header">✔️ Step 3B: Ridge Regression (recommended)</div>
+            <pre><code>from sklearn.linear_model import Ridge
 
-ridge = Ridge(alpha=<span class="number">1.0</span>)
-ridge.fit(X, df[<span class="string">'Y'</span>])
+ridge = Ridge(alpha=1.0)
+ridge.fit(X, df['Y'])
 
-<span class="keyword">print</span>(<span class="string">"Ridge Coefficients:"</span>, ridge.coef_)
-            </div>
+print("Ridge Coefficients:", ridge.coef_)</code></pre>
 
-            <div class="note-box">
-                <p><strong>Ridge handles multicollinearity</strong> by shrinking correlated coefficients.</p>
-            </div>
+            <div class="step-header">✔️ Step 3C: PCA</div>
+            <pre><code>from sklearn.decomposition import PCA
 
-            <div class="step-header">✔️ Step 3C: Fix by PCA (Dimensionality Reduction)</div>
-            <div class="code-block">
-<span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA
-
-pca = PCA(n_components=<span class="number">2</span>)
+pca = PCA(n_components=2)
 X_pca = pca.fit_transform(X)
 
-<span class="keyword">print</span>(X_pca[:<span class="number">5</span>])
-            </div>
+print(X_pca[:5])</code></pre>
 
         </div>
     </div>
 </body>
+
 </html>
