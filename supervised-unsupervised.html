@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Machine Learning Cheat Sheet</title>
+
     <style>
         * {
             margin: 0;
@@ -13,26 +15,31 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f3f4f6;
-            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
+            color: #1f2937;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             background: #ffffff;
-            padding: 25px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 28px;
-            color: #222;
+            margin-bottom: 35px;
+            font-size: 36px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             letter-spacing: 0.5px;
         }
 
@@ -40,80 +47,228 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-        }
-
-        .section {
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 6px solid #4f46e5;
-        }
-
-        .section h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #4f46e5;
-        }
-
-        .goal {
-            font-size: 14px;
-            margin-bottom: 18px;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .sub {
-            margin-bottom: 15px;
-        }
-
-        .sub h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 15px;
-        }
-
-        ul li {
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 18px;
-        }
-
-        ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: #4f46e5;
-            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: 1fr;
             }
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 28px;
+                margin-bottom: 25px;
+            }
         }
 
+        .section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 28px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            border-top: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(102, 126, 234, 0.15);
+            border-left-color: #764ba2;
+        }
+
+        .section h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        .goal {
+            font-size: 14px;
+            margin-bottom: 22px;
+            padding: 12px 15px;
+            background: #e0e7ff;
+            border-radius: 8px;
+            color: #3730a3;
+            font-weight: 500;
+            border-left: 3px solid #667eea;
+        }
+
+        .sub {
+            margin-bottom: 25px;
+        }
+
+        .sub h3 {
+            font-size: 18px;
+            margin-bottom: 14px;
+            color: #111827;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sub h3::before {
+            content: "";
+            width: 4px;
+            height: 4px;
+            background: #667eea;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            padding-left: 24px;
+            position: relative;
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 8px;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .memory-box {
+            background: linear-gradient(135deg, #eef2ff 0%, #f3e8ff 100%);
+            padding: 16px;
+            border-radius: 8px;
+            border: 2px solid #c7d2fe;
+            margin-top: 14px;
+            border-left: 4px solid #667eea;
+        }
+
+        .memory-box h3 {
+            color: #4338ca;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .memory-phrase {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e40af;
+            font-style: italic;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-print:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-print:active {
+            transform: translateY(0);
+        }
+
+        .btn-reset {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-reset:hover {
+            background: #d1d5db;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 30px;
+                max-width: 100%;
+            }
+
+            h1 {
+                -webkit-text-fill-color: unset;
+                background: none;
+                color: #1e3a8a;
+                margin-bottom: 25px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+            }
+
+            .section:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .grid {
+                gap: 20px;
+            }
+
+            .button-group {
+                display: none;
+            }
+
+            .memory-box {
+                background: #f0f4f8;
+                border: 1px solid #cbd5e1;
+            }
+        }
     </style>
 </head>
-<body>
 
+<body>
     <div class="container">
-        <h1>Machine Learning Cheat Sheet</h1>
+        <h1>🧠 Machine Learning Cheat Sheet</h1>
 
         <div class="grid">
-
-            <!-- Supervised Learning -->
             <div class="section">
                 <h2>Supervised Learning</h2>
-                <div class="goal">Goal: Predict known outcomes (classification or regression)</div>
+                <div class="goal">🎯 Predict known outcomes (classification or regression)</div>
 
                 <div class="sub">
-                    <h3>A. Regression (Continuous output)</h3>
+                    <h3>Regression (Continuous output)</h3>
                     <ul>
                         <li>Linear Regression</li>
                         <li>Polynomial Regression</li>
@@ -121,12 +276,17 @@
                         <li>Support Vector Regression (SVR)</li>
                         <li>Decision Tree Regression</li>
                         <li>Random Forest Regression</li>
-                        <li>Gradient Boosting Regression (XGBoost, LightGBM, CatBoost)</li>
+                        <li>Gradient Boosting (XGBoost, LightGBM, CatBoost)</li>
                     </ul>
+
+                    <div class="memory-box">
+                        <h3>💡 Memory Trick:</h3>
+                        <div class="memory-phrase">"Little Pink Rabbits Sing During Rainy Grey-Skies"</div>
+                    </div>
                 </div>
 
                 <div class="sub">
-                    <h3>B. Classification (Categorical output)</h3>
+                    <h3>Classification (Categorical output)</h3>
                     <ul>
                         <li>Logistic Regression</li>
                         <li>K-Nearest Neighbors (KNN)</li>
@@ -134,51 +294,68 @@
                         <li>Random Forest Classifier</li>
                         <li>Support Vector Machines (SVM)</li>
                         <li>Naive Bayes</li>
-                        <li>Neural Networks (Feedforward, CNNs, RNNs)</li>
-                        <li>Gradient Boosting Classifiers (XGBoost, AdaBoost, CatBoost)</li>
+                        <li>Neural Networks</li>
+                        <li>Gradient Boosting Classifiers</li>
                     </ul>
+                    <div class="memory-box">
+                        <h3>💡 Memory Trick:</h3>
+                        <div class="memory-phrase">"Lazy Kids Dance Rapidly, Singing Near Greenfields"</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Unsupervised Learning -->
             <div class="section">
                 <h2>Unsupervised Learning</h2>
-                <div class="goal">Goal: Discover hidden structure or relationships in data</div>
+                <div class="goal">🎯 Discover hidden structures in data</div>
 
                 <div class="sub">
-                    <h3>A. Clustering</h3>
+                    <h3>Clustering</h3>
                     <ul>
                         <li>K-Means Clustering</li>
-                        <li>Hierarchical Clustering (Agglomerative, Divisive)</li>
-                        <li>DBSCAN (Density-Based Clustering)</li>
-                        <li>Mean Shift Clustering</li>
-                        <li>Gaussian Mixture Models (GMM)</li>
+                        <li>Hierarchical Clustering</li>
+                        <li>DBSCAN</li>
+                        <li>Mean Shift</li>
+                        <li>Gaussian Mixture Models</li>
                     </ul>
                 </div>
 
                 <div class="sub">
-                    <h3>B. Dimensionality Reduction</h3>
+                    <h3>Dimensionality Reduction</h3>
                     <ul>
-                        <li>Principal Component Analysis (PCA)</li>
-                        <li>t-SNE (t-Distributed Stochastic Neighbor Embedding)</li>
+                        <li>PCA (Principal Component Analysis)</li>
+                        <li>t-SNE</li>
                         <li>Autoencoders</li>
-                        <li>Independent Component Analysis (ICA)</li>
-                        <li>UMAP (Uniform Manifold Approximation & Projection)</li>
+                        <li>ICA (Independent Component Analysis)</li>
+                        <li>UMAP</li>
                     </ul>
                 </div>
 
                 <div class="sub">
-                    <h3>D. Anomaly Detection</h3>
+                    <h3>Anomaly Detection</h3>
                     <ul>
                         <li>Isolation Forest</li>
                         <li>One-Class SVM</li>
-                        <li>Local Outlier Factor (LOF)</li>
+                        <li>Local Outlier Factor</li>
                     </ul>
                 </div>
-
             </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-print" id="printBtn">🖨️ Print This Sheet</button>
+            <button class="btn-reset" id="resetBtn">↻ Reset</button>
         </div>
     </div>
 
+    <script>
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            location.reload();
+        });
+    </script>
 </body>
+
 </html>
