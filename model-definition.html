@@ -13,42 +13,42 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 100%);
-            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
             min-height: 100vh;
-
-            /* same center look & width feel as previous layout */
-            display: flex;
-            justify-content: center;
         }
 
         .container {
-            max-width: 1100px;  /* MATCHED with previous cheat sheet width */
+            max-width: 1300px; 
             width: 100%;
+            margin: 0 auto;
             background: #ffffff;
-            padding: 25px 30px;  /* matched spacing */
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
         }
 
         h1 {
             text-align: center;
-            color: #1f2937;
-            font-size: 2rem; /* matched heading scale */
-            margin-bottom: 8px;
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
             text-align: center;
             color: #6b7280;
-            margin-bottom: 20px;
-            font-size: 1rem;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
         }
 
         .table-wrapper {
             background: white;
             border-radius: 12px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
             overflow: hidden;
         }
 
@@ -62,20 +62,21 @@
         }
 
         thead {
-            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         thead th {
             color: white;
-            padding: 18px;       /* reduced to match previous card density */
+            padding: 20px;
             text-align: left;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         tbody tr {
             border-bottom: 1px solid #e5e7eb;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         tbody tr:nth-child(even) {
@@ -83,58 +84,120 @@
         }
 
         tbody tr:hover {
-            background-color: #dbeafe;
+            background: linear-gradient(90deg, #667eea15 0%, #764ba215 100%);
+            transform: scale(1.005);
         }
 
         tbody td {
-            padding: 18px;      /* matched proportions */
+            padding: 18px;
             color: #374151;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            vertical-align: top;
         }
 
         tbody td:first-child {
-            font-weight: 600;
-            color: #2563eb;
+            font-weight: 700;
+            color: #667eea;
             width: 20%;
+            font-size: 1rem;
         }
 
         tbody td:nth-child(2) {
             width: 50%;
-            line-height: 1.55;
+            line-height: 1.7;
         }
 
         tbody td:nth-child(3) {
             width: 30%;
             font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            background-color: #f3f4f6;
-            border-radius: 6px;
-            padding: 14px;
+            font-size: 0.9rem;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border-radius: 8px;
+            padding: 16px;
+            color: #2c3e50;
+            border-left: 3px solid #667eea;
         }
 
         .footer {
             text-align: center;
-            margin-top: 25px;
-            color: #6b7280;
-            font-size: 0.85rem;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 2px solid #e5e7eb;
         }
 
         .footer p {
-            margin: 5px 0;
+            margin: 8px 0;
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .footer strong {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .supervised {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #667eea;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        .unsupervised {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #764ba2;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        .deep-learning {
+            display: inline-block;
+            padding: 4px 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
             .container {
-                padding: 18px;
+                padding: 20px;
             }
 
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
             }
 
             thead th,
             tbody td {
                 padding: 12px;
+                font-size: 0.85rem;
+            }
+
+            tbody td:first-child {
+                font-size: 0.9rem;
+            }
+
+            tbody td:nth-child(3) {
                 font-size: 0.8rem;
             }
         }
@@ -143,7 +206,7 @@
 
 <body>
     <div class="container">
-        <h1>Machine Learning Algorithms Reference</h1>
+        <h1>🤖 Machine Learning Algorithms Reference</h1>
         <p class="subtitle">Comprehensive guide to ML models with definitions and formulas</p>
 
         <div class="table-wrapper">
@@ -158,105 +221,104 @@
                     </thead>
                     <tbody>
 
-                        <!-- ALL YOUR ROWS ARE KEPT SAME -->
                         <tr>
-                            <td>Linear Regression</td>
+                            <td>Linear Regression<span class="supervised">Supervised</span></td>
                             <td>A supervised learning algorithm that models the relationship between a dependent variable and one or more independent variables using a linear equation.</td>
                             <td>Y = β₀ + β₁X₁ + ... + βₙXₙ</td>
                         </tr>
 
                         <tr>
-                            <td>Logistic Regression</td>
-                            <td>Supervised classification algorithm predicting binary outcomes using the sigmoid function.</td>
+                            <td>Logistic Regression<span class="supervised">Supervised</span></td>
+                            <td>Logistic regression is a supervised machine learning algorithm used for classification tasks, especially binary classification, to predict the probability of a categorical outcome. It works by modeling the relationship between a dependent variable and one or more independent variables using a sigmoid function.</td>
                             <td>P = 1 / (1 + e^-(β₀ + β₁X₁ + ...))</td>
                         </tr>
 
                         <tr>
-                            <td>Decision Tree</td>
+                            <td>Decision Tree<span class="supervised">Supervised</span></td>
                             <td>A supervised model that splits data recursively based on feature values.</td>
                             <td>Binary recursive splits using thresholds</td>
                         </tr>
 
                         <tr>
-                            <td>Random Forest</td>
+                            <td>Random Forest<span class="supervised">Supervised</span></td>
                             <td>Ensemble of decision trees using bagging to reduce variance.</td>
                             <td>Ŷ = (1/T) Σ predictions</td>
                         </tr>
 
                         <tr>
-                            <td>Gradient Boosting</td>
+                            <td>Gradient Boosting<span class="supervised">Supervised</span></td>
                             <td>Sequential ensemble where each model fixes errors of the previous ones.</td>
                             <td>F(x) = Σ αₘ hₘ(x)</td>
                         </tr>
 
                         <tr>
-                            <td>SVM</td>
+                            <td>SVM<span class="supervised">Supervised</span></td>
                             <td>Finds the maximum-margin hyperplane separating classes.</td>
                             <td>yᵢ(w·xᵢ + b) ≥ 1</td>
                         </tr>
 
                         <tr>
-                            <td>KNN</td>
+                            <td>KNN<span class="supervised">Supervised</span></td>
                             <td>Classifies using the majority vote of the K closest neighbors.</td>
                             <td>d = √Σ(xᵢ − yᵢ)²</td>
                         </tr>
 
                         <tr>
-                            <td>Naive Bayes</td>
-                            <td>Probabilistic classifier assuming feature independence.</td>
+                            <td>Naive Bayes<span class="supervised">Supervised</span></td>
+                            <td>Naive Bayes is a supervised machine learning algorithm that uses probability and Bayes' Theorem to classify data. It's called "naive" because it makes a strong assumption that all features are independent of each other, meaning one feature doesn't affect another</td>
                             <td>P(A|B) = P(B|A)P(A)/P(B)</td>
                         </tr>
 
                         <tr>
-                            <td>K-Means</td>
+                            <td>K-Means<span class="unsupervised">Unsupervised</span></td>
                             <td>Unsupervised clustering minimizing within-cluster variance.</td>
                             <td>Σ Σ ||xᵢ - μₖ||²</td>
                         </tr>
 
                         <tr>
-                            <td>Hierarchical Clustering</td>
+                            <td>Hierarchical Clustering<span class="unsupervised">Unsupervised</span></td>
                             <td>Builds clusters using bottom-up or top-down strategies.</td>
                             <td>d(A,B) by linkage (single/complete/average)</td>
                         </tr>
 
                         <tr>
-                            <td>PCA</td>
+                            <td>PCA<span class="unsupervised">Unsupervised</span></td>
                             <td>Transforms data into principal components maximizing variance.</td>
                             <td>Eigenvectors of covariance matrix</td>
                         </tr>
 
                         <tr>
-                            <td>Neural Networks</td>
+                            <td>Neural Networks<span class="deep-learning">Deep Learning</span></td>
                             <td>Feedforward networks that learn weights via backpropagation.</td>
                             <td>activation(Σ(wᵢxᵢ + b))</td>
                         </tr>
 
                         <tr>
-                            <td>CNN</td>
+                            <td>CNN<span class="deep-learning">Deep Learning</span></td>
                             <td>Deep model with filters for spatial pattern detection.</td>
                             <td>Convolution: (f * g)(x) = Σ f(a)g(x-a)</td>
                         </tr>
 
                         <tr>
-                            <td>RNN</td>
+                            <td>RNN<span class="deep-learning">Deep Learning</span></td>
                             <td>Sequential model capturing time dependencies.</td>
                             <td>hₜ = tanh(Wₓₕxₜ + Wₕₕhₜ₋₁)</td>
                         </tr>
 
                         <tr>
-                            <td>Transformer</td>
+                            <td>Transformer<span class="deep-learning">Deep Learning</span></td>
                             <td>Deep model using self-attention, basis of modern NLP.</td>
                             <td>softmax(QKᵀ/√dₖ)V</td>
                         </tr>
 
                         <tr>
-                            <td>Autoencoders</td>
+                            <td>Autoencoders<span class="deep-learning">Deep Learning</span></td>
                             <td>Unsupervised network learning compressed representations.</td>
                             <td>Minimize ||X - reconstruction||²</td>
                         </tr>
 
                         <tr>
-                            <td>DBSCAN</td>
+                            <td>DBSCAN<span class="unsupervised">Unsupervised</span></td>
                             <td>Groups dense regions and labels sparse ones as noise.</td>
                             <td>ε-neighborhood ≥ minPts</td>
                         </tr>
@@ -267,7 +329,7 @@
         </div>
 
         <div class="footer">
-            <p><strong>Total Algorithms: 17</strong></p>
+            <p><strong>📊 Total Algorithms: 17</strong></p>
             <p>Includes Supervised, Unsupervised, and Deep Learning Methods</p>
         </div>
     </div>

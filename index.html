@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
-    <title>Data Science Cheet Sheet</title>
+    <title>Data Science Cheat Sheet</title>
     <style>
         * {
             margin: 0;
@@ -24,10 +24,7 @@
         .container {
             max-width: 900px;
             margin: 40px auto;
-            /* background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); */
-            overflow: hidden;
+            position: relative;
             flex: 1;
         }
 
@@ -35,6 +32,10 @@
             min-height: 700px;
             display: flex;
             flex-direction: column;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
         .loading {
@@ -46,48 +47,59 @@
             color: #667eea;
         }
 
-        footer {
-            background: #2c3e50;
-            padding: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1em;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        button:disabled {
-            background: #95a5a6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
         .page-indicator {
             text-align: center;
             padding: 20px;
             color: #ecf0f1;
             font-size: 1.1em;
             background: #34495e;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        /* Navigation Buttons - Centered on Page */
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-button:active:not(:disabled) {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .nav-button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        #prevBtn {
+            left: 20px;
+        }
+
+        #nextBtn {
+            right: 20px;
         }
 
         /* Styles for loaded HTML content */
@@ -122,24 +134,94 @@
             font-size: 1.1em;
             margin-bottom: 15px;
         }
+
+        /* Demo content styles */
+        .demo-content {
+            padding: 40px;
+        }
+
+        .demo-content h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .demo-content h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .demo-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .demo-content ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .demo-content li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .nav-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+            }
+
+            #prevBtn {
+                left: 10px;
+            }
+
+            #nextBtn {
+                right: 10px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Navigation Buttons -->
+    <button id="prevBtn" class="nav-button" onclick="changeSlide(-1)">‹</button>
+    <button id="nextBtn" class="nav-button" onclick="changeSlide(1)">›</button>
+
     <div class="container">
         <div id="contentContainer" class="content-wrapper">
-            <div class="loading">Loading...</div>
+            <div class="demo-content">
+                <h1>📊 Data Science Cheat Sheet</h1>
+                <h2>Introduction</h2>
+                <p>Welcome to the Data Science Cheat Sheet navigator! This interactive guide covers essential topics in machine learning and data science.</p>
+                
+                <h2>Topics Covered</h2>
+                <ul>
+                    <li><strong>Introduction</strong> - Overview of data science concepts</li>
+                    <li><strong>Supervised vs Unsupervised Learning</strong> - Key differences and applications</li>
+                    <li><strong>Model Definition</strong> - Understanding ML models</li>
+                    <li><strong>Linear Regression</strong> - Basic predictive modeling</li>
+                    <li><strong>Bias-Variance Tradeoff</strong> - Model performance concepts</li>
+                    <li><strong>Parameter Tuning</strong> - Optimizing model performance</li>
+                    <li><strong>Regularization</strong> - Preventing overfitting</li>
+                    <li><strong>Ensemble Learning</strong> - Combining multiple models</li>
+                    <li><strong>Coding Questions</strong> - Practice problems</li>
+                </ul>
+
+                <h2>How to Navigate</h2>
+                <p>Use the arrow buttons on the left and right sides of the screen to navigate between pages. The page indicator at the bottom shows your current position.</p>
+            </div>
+        </div>
+
+        <div class="page-indicator">
+            Page <span id="current">1</span> of <span id="total">9</span>
         </div>
     </div>
-
-    <div class="page-indicator">
-        Page <span id="current">1</span> of <span id="total">totalSlides</span>
-    </div>
-
-    <footer>
-        <button id="prevBtn" onclick="changeSlide(-1)">Prev</button>
-        <button id="nextBtn" onclick="changeSlide(1)">Next</button>
-    </footer>
 
     <script>
         // Define your HTML files here
@@ -149,6 +231,8 @@
             'model-definition.html',
             'linear-regression.html',
             'bias-variance.html',
+            'parameter-tunning.html',
+            'regularization.html',
             'ensemble-learning.html',
             'coding-questions.html',
         ];
@@ -202,6 +286,15 @@
         function changeSlide(direction) {
             showSlide(currentSlide + direction);
         }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
 
         // Load first page on startup
         showSlide(0);

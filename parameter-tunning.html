@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperparameter Tuning Guide 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #f0f4ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .method-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .method-title {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .badge-best {
+            background: #4caf50;
+            color: white;
+        }
+
+        .badge-recommended {
+            background: #ff9800;
+            color: white;
+        }
+
+        .final-recommendation {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .final-recommendation strong {
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .problem-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            border: 2px solid #ff6b6b;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .problem-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .problem-header .icon {
+            font-size: 2.5em;
+            margin-right: 15px;
+        }
+
+        .problem-header h3 {
+            color: #c92a2a;
+            margin: 0;
+            font-size: 1.6em;
+        }
+
+        .example-problem {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-problem h4 {
+            color: #c92a2a;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .visual-demo {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 3px solid #667eea;
+            margin-bottom: 15px;
+        }
+
+        .image-caption {
+            color: #495057;
+            font-style: italic;
+            margin: 10px 0 0 0;
+        }
+
+        .problem-explanation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .explanation-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .explanation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2em;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-content h4 {
+            color: #495057;
+            margin: 0 0 8px 0;
+            font-size: 1.1em;
+        }
+
+        .card-content p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        .solution-box {
+            background: linear-gradient(135deg, #d3f9d8 0%, #b2f2bb 100%);
+            border-left: 5px solid #51cf66;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .solution-box h4 {
+            color: #2b8a3e;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .solution-box p {
+            color: #2b8a3e;
+            margin: 0;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Hyperparameter Tuning Guide</h1>
+            <p>Master ML Model Optimization in 2025</p>
+        </header>
+
+        <div class="content">
+            <h2>What is Hyperparameter Tuning?</h2>
+            <p>
+                Hyperparameter tuning (also called hyperparameter optimization) is the process of finding the 
+                <strong>best combination of hyperparameters</strong> for a machine learning model so that it achieves the 
+                <strong>highest performance</strong> (e.g., highest accuracy, lowest error) on unseen data.
+            </p>
+
+            <div class="highlight-box">
+                <h3>Common Hyperparameters:</h3>
+                <ul>
+                    <li>Learning rate</li>
+                    <li>Number of trees in Random Forest</li>
+                    <li>Number of layers/neurons in a neural network</li>
+                    <li>C and gamma in SVM</li>
+                    <li>max_depth, min_samples_split in Decision Trees</li>
+                    <li>batch_size, epochs, optimizer type in deep learning</li>
+                </ul>
+            </div>
+
+            <h2>The Problem We're Solving</h2>
+            <div class="problem-section">
+                <div class="problem-header">
+                    <span class="icon">⚠️</span>
+                    <h3>Why Do We Need Hyperparameter Tuning?</h3>
+                </div>
+                <p>
+                    Here is a problem based on our train sample: our accuracy will change depending on the random split. 
+                    We can use <strong>cross-validation</strong> and <strong>tuning techniques</strong> to get more reliable results.
+                </p>
+                
+                <div class="example-problem">
+                    <h4>❌ Basic Approach (Without Tuning)</h4>
+                    <pre><code>from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+
+data = load_breast_cancer()
+X, y = data.data, data.target
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
+accuracy = rf_model.score(X_test, y_test)
+print(f"Accuracy: {accuracy:.4f}")</code></pre>
+                </div>
+
+                <div class="visual-demo">
+                    <img src="/assets/tunning.png" alt="Hyperparameter Tuning Visualization" class="demo-image">
+                    <p class="image-caption">
+                        📊 <strong>Visual Example:</strong> How different hyperparameters affect model performance
+                    </p>
+                </div>
+
+                <div class="problem-explanation">
+                    <div class="explanation-card">
+                        <div class="card-icon">🎲</div>
+                        <div class="card-content">
+                            <h4>Random Train/Test Split</h4>
+                            <p>Different random seeds produce different accuracy scores</p>
+                        </div>
+                    </div>
+                    <div class="explanation-card">
+                        <div class="card-icon">🔧</div>
+                        <div class="card-content">
+                            <h4>Default Hyperparameters</h4>
+                            <p>Using default settings rarely gives optimal performance</p>
+                        </div>
+                    </div>
+                    <div class="explanation-card">
+                        <div class="card-icon">📉</div>
+                        <div class="card-content">
+                            <h4>Unstable Results</h4>
+                            <p>Model performance varies significantly across different runs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-box">
+                    <h4>✅ The Solution: Cross-Validation + Hyperparameter Tuning</h4>
+                    <p>
+                        Instead of relying on a single train/test split, we use <strong>cross-validation</strong> 
+                        with <strong>systematic hyperparameter optimization</strong> to find the best model configuration 
+                        that performs consistently well across different data splits.
+                    </p>
+                </div>
+            </div>
+
+            <h2>Most Popular Hyperparameter Tuning Methods</h2>
+            
+            <div class="method-card">
+                <div class="method-title">1. Grid Search</div>
+                <p>Tries every combination (exhaustive but slow)</p>
+            </div>
+
+            <div class="method-card">
+                <div class="method-title">2. Random Search</div>
+                <p>Samples random combinations (often better than Grid)</p>
+            </div>
+
+            <div class="method-card">
+                <div class="method-title">3. Bayesian Optimization <span class="badge badge-best">BEST</span></div>
+                <p>Smart search using probability (best in practice)</p>
+            </div>
+
+            <div class="method-card">
+                <div class="method-title">4. Hyperband / BOHB</div>
+                <p>Fast for deep learning</p>
+            </div>
+
+            <div class="method-card">
+                <div class="method-title">5. Optuna / Ray Tune / Scikit-Optimize</div>
+                <p>Modern, powerful tools</p>
+            </div>
+
+            <h2>Example Dataset Setup</h2>
+            <pre><code>from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+
+data = load_breast_cancer()
+X, y = data.data, data.target
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)</code></pre>
+
+            <h3>1. Grid Search (Simple but slow)</h3>
+            <pre><code>from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+
+param_grid = {
+    'n_estimators': [100, 200, 300, 500],
+    'max_depth': [None, 10, 20, 30],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4],
+    'bootstrap': [True, False]
+}
+
+rf = RandomForestClassifier(random_state=42)
+
+grid_search = GridSearchCV(
+    estimator=rf,
+    param_grid=param_grid,
+    cv=5,
+    scoring='accuracy',
+    n_jobs=-1,
+    verbose=1
+)
+
+grid_search.fit(X_train, y_train)
+
+print("Best parameters:", grid_search.best_params_)
+print("Best score:", grid_search.best_score_)</code></pre>
+
+            <h3>2. Random Search (Much faster, often better)</h3>
+            <pre><code>from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import randint, uniform
+
+param_dist = {
+    'n_estimators': randint(100, 1000),
+    'max_depth': [None] + list(range(10, 110, 10)),
+    'min_samples_split': randint(2, 20),
+    'min_samples_leaf': randint(1, 10),
+    'max_features': ['auto', 'sqrt', 'log2'],
+    'bootstrap': [True, False]
+}
+
+random_search = RandomizedSearchCV(
+    RandomForestClassifier(random_state=42),
+    param_distributions=param_dist,
+    n_iter=100,
+    cv=5,
+    scoring='accuracy',
+    random_state=42,
+    n_jobs=-1
+)
+
+random_search.fit(X_train, y_train)
+
+print("Best parameters:", random_search.best_params_)
+print("Best CV score:", random_search.best_score_)</code></pre>
+
+            <h3>3. Bayesian Optimization with Optuna <span class="badge badge-recommended">2025 BEST</span></h3>
+            <pre><code>!pip install optuna
+
+import optuna
+from sklearn.model_selection import cross_val_score
+from sklearn.ensemble import RandomForestClassifier
+
+def objective(trial):
+    n_estimators = trial.suggest_int('n_estimators', 100, 1000)
+    max_depth = trial.suggest_int('max_depth', 5, 50, log=False)
+    min_samples_split = trial.suggest_int('min_samples_split', 2, 20)
+    min_samples_leaf = trial.suggest_int('min_samples_leaf', 1, 10)
+    max_features = trial.suggest_categorical(
+        'max_features', ['sqrt', 'log2', None]
+    )
+    
+    model = RandomForestClassifier(
+        n_estimators=n_estimators,
+        max_depth=max_depth if max_depth > 0 else None,
+        min_samples_split=min_samples_split,
+        min_samples_leaf=min_samples_leaf,
+        max_features=max_features,
+        random_state=42,
+        n_jobs=-1
+    )
+    
+    score = cross_val_score(
+        model, X_train, y_train, 
+        cv=5, scoring='accuracy', n_jobs=-1
+    )
+    return score.mean()
+
+study = optuna.create_study(direction='maximize')
+study.optimize(objective, n_trials=100)
+
+print("Best hyperparameters:", study.best_params)
+print("Best accuracy:", study.best_value)
+
+best_model = RandomForestClassifier(
+    **study.best_params, random_state=42, n_jobs=-1
+)
+best_model.fit(X_train, y_train)
+print("Test accuracy:", best_model.score(X_test, y_test))</code></pre>
+
+            <h2>Method Comparison</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Speed</th>
+                        <th>Performance</th>
+                        <th>Recommendation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Grid Search</td>
+                        <td>Very Slow</td>
+                        <td>Good</td>
+                        <td>Only for tiny search spaces</td>
+                    </tr>
+                    <tr>
+                        <td>Random Search</td>
+                        <td>Fast</td>
+                        <td>Very Good</td>
+                        <td>Good baseline</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Optuna (Bayesian)</strong></td>
+                        <td>Fast</td>
+                        <td><strong>Best</strong></td>
+                        <td><strong>Recommended for almost all projects</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Ray Tune / Keras Tuner</td>
+                        <td>Very Fast</td>
+                        <td>Best</td>
+                        <td>When you need distributed tuning</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="final-recommendation">
+                <strong>🎯 Final Recommendation</strong>
+                <p>
+                    Use <strong>Optuna</strong> — it's currently the best balance of speed, 
+                    performance, and ease of use in 2025.
+                </p>
+                <p style="margin-top: 15px; font-size: 0.95em;">
+                    Let me know which model you're tuning (XGBoost, LightGBM, Neural Network, etc.), 
+                    and I'll give you the perfect Optuna code for it!
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

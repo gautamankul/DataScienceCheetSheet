@@ -348,13 +348,33 @@
     </div>
 
     <script>
-        document.getElementById('printBtn').addEventListener('click', function() {
-            window.print();
-        });
-
-        document.getElementById('resetBtn').addEventListener('click', function() {
-            location.reload();
-        });
+        function setupButtons() {
+            const printBtn = document.getElementById('printBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            if (printBtn) {
+                printBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setTimeout(() => {
+                        window.print();
+                    }, 100);
+                });
+            }
+            
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    location.reload();
+                });
+            }
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupButtons);
+        } else {
+            setupButtons();
+        }
     </script>
 </body>
 

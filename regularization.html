@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regularization in Machine Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #764ba2;
+        }
+
+        h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .equation {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .note {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 40px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid #667eea;
+        }
+
+        .comparison-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #764ba2;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Regularization in Machine Learning</h1>
+
+        <div class="intro">
+            <p><strong>Regularization</strong> is a technique used in machine learning to prevent overfitting by adding a penalty term to the loss function. This penalty discourages the model from learning overly complex patterns that may not generalize well to new data.</p>
+        </div>
+
+        <h2>Why Do We Need Regularization?</h2>
+        <p>Machine learning models can sometimes become too complex, fitting the training data too closely, including its noise and outliers. This phenomenon is called <span class="highlight">overfitting</span>. While an overfitted model performs excellently on training data, it performs poorly on unseen test data.</p>
+
+        <p>Regularization helps by:</p>
+        <ul>
+            <li>Reducing model complexity</li>
+            <li>Preventing overfitting</li>
+            <li>Improving generalization to new data</li>
+            <li>Making the model more robust</li>
+        </ul>
+
+        <h2>Types of Regularization</h2>
+
+        <h3>1. L1 Regularization (Lasso)</h3>
+        <p>L1 regularization adds the <strong>absolute value</strong> of the magnitude of coefficients as a penalty term to the loss function.</p>
+
+        <div class="equation">
+            Loss = Original Loss + λ × Σ|w<sub>i</sub>|
+        </div>
+
+        <p>Where:</p>
+        <ul>
+            <li><strong>λ</strong> (lambda) is the regularization parameter</li>
+            <li><strong>w<sub>i</sub></strong> represents the model weights</li>
+        </ul>
+
+        <div class="note">
+            <strong>Key Property:</strong> L1 regularization can force some coefficients to become exactly zero, effectively performing feature selection. This makes the model more interpretable.
+        </div>
+
+        <h3>2. L2 Regularization (Ridge)</h3>
+        <p>L2 regularization adds the <strong>squared magnitude</strong> of coefficients as a penalty term to the loss function.</p>
+
+        <div class="equation">
+            Loss = Original Loss + λ × Σw<sub>i</sub><sup>2</sup>
+        </div>
+
+        <div class="note">
+            <strong>Key Property:</strong> L2 regularization shrinks coefficients towards zero but rarely makes them exactly zero. It tends to distribute the penalty across all features.
+        </div>
+
+        <h3>3. Elastic Net</h3>
+        <p>Elastic Net combines both L1 and L2 regularization, providing a balance between their properties.</p>
+
+        <div class="equation">
+            Loss = Original Loss + λ<sub>1</sub> × Σ|w<sub>i</sub>| + λ<sub>2</sub> × Σw<sub>i</sub><sup>2</sup>
+        </div>
+
+        <h2>L1 vs L2: Comparison</h2>
+
+        <div class="comparison">
+            <div class="comparison-box">
+                <h4>L1 Regularization</h4>
+                <ul>
+                    <li>Sum of absolute weights: λ∑|w|</li>
+                    <li>Fearure Selection:Yes (drives weights to exactly 0)</li>
+                    <li>Produces sparse models</li>
+                    <li>Performs feature selection</li>
+                    <li>More robust to outliers</li>
+                    <li>Computationally efficient for sparse data</li>
+                </ul>
+            </div>
+            <div class="comparison-box">
+                <h4>L2 Regularization</h4>
+                <ul>
+                    <li>Sum of squared weights: λ∑w²</li>
+                    <li>Fearure Selection:❌ No (shrinks weights close to 0)</li>
+                    <li>Produces dense models</li>
+                    <li>Keeps all features</li>
+                    <li>More stable solution</li>
+                    <li>Computationally efficient (differentiable)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>The Regularization Parameter (λ)</h2>
+        <p>The regularization parameter <strong>λ</strong> (lambda) controls the strength of the penalty:</p>
+        <ul>
+            <li><strong>λ = 0:</strong> No regularization (risk of overfitting)</li>
+            <li><strong>Small λ:</strong> Weak penalty (model closer to unregularized version)</li>
+            <li><strong>Large λ:</strong> Strong penalty (risk of underfitting)</li>
+        </ul>
+
+        <div class="note">
+            <strong>Tip:</strong> The optimal λ value is typically found using cross-validation, testing different values and selecting the one that gives the best performance on validation data.
+        </div>
+
+        <h2>Practical Applications</h2>
+        <p>Regularization is widely used in various machine learning algorithms:</p>
+        <ul>
+            <li><strong>Linear Regression:</strong> Ridge and Lasso regression</li>
+            <li><strong>Logistic Regression:</strong> With L1 or L2 penalties</li>
+            <li><strong>Neural Networks:</strong> Weight decay (L2) and dropout</li>
+            <li><strong>Support Vector Machines:</strong> Controlled by the C parameter</li>
+        </ul>
+
+        <h2>Summary</h2>
+        <p>Regularization is an essential tool in the machine learning toolkit. By adding a penalty for model complexity, it helps create models that generalize better to new data. The choice between L1, L2, or Elastic Net depends on your specific problem, whether you need feature selection, and the nature of your data.</p>
+    </div>
+</body>
+</html>
