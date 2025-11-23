@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Nearest Neighbors Algorithm</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #555;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f0e7ff 0%, #e7d9ff 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .formula {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            border: 2px solid #dee2e6;
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #764ba2;
+        }
+
+        .step-box {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .pros, .cons {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .pros {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+
+        .cons {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>K-Nearest Neighbors (KNN) Algorithm</h1>
+
+        <div class="highlight">
+            <p><strong>K-Nearest Neighbors (KNN)</strong> is a simple, intuitive, and versatile supervised machine learning algorithm used for both classification and regression tasks. It is a non-parametric, instance-based learning algorithm that makes predictions based on the similarity of data points.</p>
+        </div>
+
+        <h2>How KNN Works</h2>
+        <p>KNN operates on a straightforward principle: similar data points are likely to belong to the same class or have similar output values. The algorithm works by finding the K closest data points (neighbors) to a given query point and making predictions based on their labels or values.</p>
+
+        <h3>Steps in the KNN Algorithm:</h3>
+        <div class="step-box">
+            <strong>1. Choose the number K:</strong> Select the number of nearest neighbors to consider.
+        </div>
+        <div class="step-box">
+            <strong>2. Calculate distance:</strong> Compute the distance between the query point and all points in the training dataset using a distance metric (e.g., Euclidean distance).
+        </div>
+        <div class="step-box">
+            <strong>3. Find K nearest neighbors:</strong> Identify the K data points with the smallest distances to the query point.
+        </div>
+        <div class="step-box">
+            <strong>4. Make prediction:</strong>
+            <ul>
+                <li><strong>Classification:</strong> Assign the class label that appears most frequently among the K neighbors (majority voting).</li>
+                <li><strong>Regression:</strong> Calculate the average (or weighted average) of the values of the K neighbors.</li>
+            </ul>
+        </div>
+
+        <h2>Distance Metrics</h2>
+        <p>The choice of distance metric affects the performance of KNN. Common distance metrics include:</p>
+
+        <h3>Euclidean Distance:</h3>
+        <p>The straight-line distance between two points in Euclidean space.</p>
+        <div class="formula">
+            d(x, y) = √(Σ(xᵢ - yᵢ)²)
+        </div>
+
+        <h3>Manhattan Distance:</h3>
+        <p>The sum of absolute differences between coordinates.</p>
+        <div class="formula">
+            d(x, y) = Σ|xᵢ - yᵢ|
+        </div>
+
+        <h3>Minkowski Distance:</h3>
+        <p>A generalization of Euclidean and Manhattan distances.</p>
+        <div class="formula">
+            d(x, y) = (Σ|xᵢ - yᵢ|ᵖ)^(1/p)
+        </div>
+
+        <h2>Choosing the Value of K</h2>
+        <div class="note">
+            <p><strong>Note:</strong> The choice of K significantly impacts the model's performance:</p>
+            <ul>
+                <li><strong>Small K (e.g., K=1):</strong> The model becomes sensitive to noise and may overfit the training data.</li>
+                <li><strong>Large K:</strong> The model becomes more robust to noise but may underfit, as it considers too many neighbors that might belong to different classes.</li>
+                <li><strong>Rule of thumb:</strong> K is often chosen as the square root of the number of training samples, but cross-validation is recommended for optimal selection.</li>
+            </ul>
+        </div>
+
+        <h2>Advantages and Disadvantages</h2>
+        <div class="pros-cons">
+            <div class="pros">
+                <h3>Advantages:</h3>
+                <ul>
+                    <li><strong>Simple and intuitive:</strong> Easy to understand and implement.</li>
+                    <li><strong>No training phase:</strong> KNN is a lazy learner, meaning it doesn't require an explicit training phase.</li>
+                    <li><strong>Versatile:</strong> Can be used for both classification and regression.</li>
+                    <li><strong>Adapts to new data:</strong> New data points can be added without retraining.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h3>Disadvantages:</h3>
+                <ul>
+                    <li><strong>Computationally expensive:</strong> Prediction time increases with the size of the dataset.</li>
+                    <li><strong>Memory intensive:</strong> Requires storing the entire training dataset.</li>
+                    <li><strong>Sensitive to irrelevant features:</strong> Performance degrades with high-dimensional data (curse of dimensionality).</li>
+                    <li><strong>Requires feature scaling:</strong> Distance metrics are affected by the scale of features.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Applications of KNN</h2>
+        <p>KNN is widely used in various domains, including:</p>
+        <ul>
+            <li><strong>Recommendation systems:</strong> Suggesting products or content based on similar users' preferences.</li>
+            <li><strong>Image recognition:</strong> Classifying images based on pixel similarity.</li>
+            <li><strong>Anomaly detection:</strong> Identifying outliers in data.</li>
+            <li><strong>Medical diagnosis:</strong> Predicting diseases based on patient data.</li>
+            <li><strong>Credit scoring:</strong> Assessing creditworthiness based on similar profiles.</li>
+        </ul>
+
+        <h2>Best Practices</h2>
+        <div class="highlight">
+            <ul>
+                <li><strong>Feature scaling:</strong> Normalize or standardize features to ensure all dimensions contribute equally to distance calculations.</li>
+                <li><strong>Dimensionality reduction:</strong> Use techniques like PCA to reduce the number of features and mitigate the curse of dimensionality.</li>
+                <li><strong>Cross-validation:</strong> Use cross-validation to find the optimal value of K.</li>
+                <li><strong>Distance weighting:</strong> Consider weighting neighbors by their distance to give closer neighbors more influence.</li>
+            </ul>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>K-Nearest Neighbors is a powerful and flexible algorithm that serves as an excellent starting point for many machine learning tasks. While it has limitations in terms of computational efficiency and scalability, its simplicity and effectiveness make it a valuable tool in the machine learning toolkit. Understanding when and how to use KNN, along with proper preprocessing and parameter tuning, can lead to strong predictive performance across a wide range of applications.</p>
+    </div>
+</body>
+</html>
