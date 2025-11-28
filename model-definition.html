@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Machine Learning Algorithms Reference</title>
     <style>
         * {
@@ -12,14 +13,14 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 40px 20px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1300px; 
+            max-width: 1300px;
             width: 100%;
             margin: 0 auto;
             background: #ffffff;
@@ -110,7 +111,7 @@
 
         tbody td:nth-child(3) {
             width: 30%;
-            font-family: 'Courier New', monospace;
+            font-family: "Courier New", monospace;
             font-size: 0.9rem;
             background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
             border-radius: 8px;
@@ -207,7 +208,9 @@
 <body>
     <div class="container">
         <h1>🤖 Machine Learning Algorithms Reference</h1>
-        <p class="subtitle">Comprehensive guide to ML models with definitions and formulas</p>
+        <p class="subtitle">
+            Comprehensive guide to ML models with definitions and formulas
+        </p>
 
         <div class="table-wrapper">
             <div class="table-container">
@@ -220,76 +223,122 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <tr>
-                            <td>Linear Regression<span class="supervised">Supervised</span></td>
-                            <td>A supervised learning algorithm that models the relationship between a dependent variable and one or more independent variables using a linear equation.</td>
+                            <td>
+                                Linear Regression<span class="supervised">Supervised</span>
+                            </td>
+                            <td>
+                                A supervised learning algorithm that models the relationship
+                                between a dependent variable and one or more independent
+                                variables using a linear equation.
+                            </td>
                             <td>Y = β₀ + β₁X₁ + ... + βₙXₙ</td>
                         </tr>
 
                         <tr>
-                            <td>Logistic Regression<span class="supervised">Supervised</span></td>
-                            <td>Logistic regression is a supervised machine learning algorithm used for classification tasks, especially binary classification, to predict the probability of a categorical outcome. It works by modeling the relationship between a dependent variable and one or more independent variables using a sigmoid function.</td>
+                            <td>
+                                Logistic Regression<span class="supervised">Supervised</span>
+                            </td>
+                            <td>
+                                Logistic regression is a supervised machine learning algorithm
+                                used for classification tasks, especially binary
+                                classification, to predict the probability of a categorical
+                                outcome. It works by modeling the relationship between a
+                                dependent variable and one or more independent variables using
+                                a sigmoid function.
+                            </td>
                             <td>P = 1 / (1 + e^-(β₀ + β₁X₁ + ...))</td>
                         </tr>
 
                         <tr>
+                            <td>Naive Bayes<span class="supervised">Supervised</span></td>
+                            <td>
+                                Naive Bayes is a supervised machine learning algorithm that
+                                uses probability and Bayes' Theorem to classify data. It's
+                                called "naive" because it makes a strong assumption that all
+                                features are independent of each other, meaning one feature
+                                doesn't affect another
+                            </td>
+                            <td>P(A|B) = P(B|A)P(A)/P(B)</td>
+                        </tr>
+
+                        <tr>
+                            <td>KNN<span class="supervised">Supervised</span></td>
+                            <td>
+                                it's predicts a new data point's class or value based on its k
+                                closest neighbors in the dataset. It is a "lazy" algorithm
+                                because it doesn't build a model during training; instead, it
+                                stores the entire dataset and performs computations only when
+                                a prediction is needed.
+                            </td>
+                            <td>d = √Σ(xᵢ − yᵢ)²</td>
+                        </tr>
+
+                        <tr>
                             <td>Decision Tree<span class="supervised">Supervised</span></td>
-                            <td>A supervised model that splits data recursively based on feature values.</td>
+                            <td>
+                                A supervised model that makes predictions by recursively splitting data into branches based on the features that best separate the target classes.
+                                <span style="color: darkred;">Note: The algorithm splits the data into subsets based on the feature that provides the highest information gain (or lowest impurity)</span>
+                            </td> 
                             <td>Binary recursive splits using thresholds</td>
                         </tr>
 
                         <tr>
                             <td>Random Forest<span class="supervised">Supervised</span></td>
-                            <td>Ensemble of decision trees using bagging to reduce variance.</td>
+                            <td>
+                                It's an ensemble learning algorithm that constructs multiple decision trees using different subsets of the data and features, then aggregates their predictions (majority vote for classification, mean for regression) to improve accuracy and reduce overfitting by using bagging to reduce variance.
+                            </td>
                             <td>Ŷ = (1/T) Σ predictions</td>
                         </tr>
 
                         <tr>
-                            <td>Gradient Boosting<span class="supervised">Supervised</span></td>
-                            <td>Sequential ensemble where each model fixes errors of the previous ones.</td>
+                            <td>
+                                Gradient Boosting<span class="supervised">Supervised</span>
+                            </td>
+                            <td>
+                                It's an ensemble learning algorithm that builds models sequentially, where each new model is trained to reduce the gradient of the loss function from the previous tree & Then final prediction is the sum of all weak learners
+                            </td>
                             <td>F(x) = Σ αₘ hₘ(x)</td>
                         </tr>
 
                         <tr>
                             <td>SVM<span class="supervised">Supervised</span></td>
-                            <td>Finds the maximum-margin hyperplane separating classes.</td>
+                            <td>SVM finds the widest possible boundary between classes and uses support vectors to build a strong, stable, and powerful classifier — especially when combined with kernel tricks.</td>
                             <td>yᵢ(w·xᵢ + b) ≥ 1</td>
                         </tr>
 
                         <tr>
-                            <td>KNN<span class="supervised">Supervised</span></td>
-                            <td>Classifies using the majority vote of the K closest neighbors.</td>
-                            <td>d = √Σ(xᵢ − yᵢ)²</td>
-                        </tr>
-
-                        <tr>
-                            <td>Naive Bayes<span class="supervised">Supervised</span></td>
-                            <td>Naive Bayes is a supervised machine learning algorithm that uses probability and Bayes' Theorem to classify data. It's called "naive" because it makes a strong assumption that all features are independent of each other, meaning one feature doesn't affect another</td>
-                            <td>P(A|B) = P(B|A)P(A)/P(B)</td>
-                        </tr>
-
-                        <tr>
                             <td>K-Means<span class="unsupervised">Unsupervised</span></td>
-                            <td>Unsupervised clustering minimizing within-cluster variance.</td>
+                            <td>
+                               K-Means is an unsupervised machine learning algorithm used to group data points into K distinct clusters based on similarity.
+                               <span style="color: darkred;">“Can I group these data points into K meaningful clusters?"</span>
+                            </td>
                             <td>Σ Σ ||xᵢ - μₖ||²</td>
                         </tr>
 
                         <tr>
-                            <td>Hierarchical Clustering<span class="unsupervised">Unsupervised</span></td>
+                            <td>
+                                Hierarchical Clustering<span class="unsupervised">Unsupervised</span>
+                            </td>
                             <td>Builds clusters using bottom-up or top-down strategies.</td>
                             <td>d(A,B) by linkage (single/complete/average)</td>
                         </tr>
 
                         <tr>
                             <td>PCA<span class="unsupervised">Unsupervised</span></td>
-                            <td>Transforms data into principal components maximizing variance.</td>
+                            <td>
+                                Transforms data into principal components maximizing variance.
+                            </td>
                             <td>Eigenvectors of covariance matrix</td>
                         </tr>
 
                         <tr>
-                            <td>Neural Networks<span class="deep-learning">Deep Learning</span></td>
-                            <td>Feedforward networks that learn weights via backpropagation.</td>
+                            <td>
+                                Neural Networks<span class="deep-learning">Deep Learning</span>
+                            </td>
+                            <td>
+                                Feedforward networks that learn weights via backpropagation.
+                            </td>
                             <td>activation(Σ(wᵢxᵢ + b))</td>
                         </tr>
 
@@ -306,14 +355,20 @@
                         </tr>
 
                         <tr>
-                            <td>Transformer<span class="deep-learning">Deep Learning</span></td>
+                            <td>
+                                Transformer<span class="deep-learning">Deep Learning</span>
+                            </td>
                             <td>Deep model using self-attention, basis of modern NLP.</td>
                             <td>softmax(QKᵀ/√dₖ)V</td>
                         </tr>
 
                         <tr>
-                            <td>Autoencoders<span class="deep-learning">Deep Learning</span></td>
-                            <td>Unsupervised network learning compressed representations.</td>
+                            <td>
+                                Autoencoders<span class="deep-learning">Deep Learning</span>
+                            </td>
+                            <td>
+                                Unsupervised network learning compressed representations.
+                            </td>
                             <td>Minimize ||X - reconstruction||²</td>
                         </tr>
 
@@ -322,7 +377,6 @@
                             <td>Groups dense regions and labels sparse ones as noise.</td>
                             <td>ε-neighborhood ≥ minPts</td>
                         </tr>
-
                     </tbody>
                 </table>
             </div>
@@ -334,4 +388,5 @@
         </div>
     </div>
 </body>
+
 </html>
